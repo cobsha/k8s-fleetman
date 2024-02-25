@@ -38,3 +38,16 @@ spec:
   selector:
     app: api-gateway
   type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-svc
+spec:
+  ports:
+    - name: http
+      port: 80
+      nodePort: 30080
+  selector:
+    app: webapp
+  type: NodePort
