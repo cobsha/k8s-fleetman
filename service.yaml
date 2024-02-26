@@ -18,6 +18,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: fleetman-webapp
+spec:
+  ports:
+  - port: 80
+    nodePort: 30080
+  selector:
+    app: postion-simulator
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
   name: position-tracker
 spec:
   ports:
@@ -47,7 +59,7 @@ spec:
   ports:
     - name: http
       port: 80
-      nodePort: 30080
+      nodePort: 30081
   selector:
     app: webapp
   type: NodePort
